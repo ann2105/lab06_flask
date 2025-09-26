@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <title>Form</title>
+</head>
+<body>
+    <nav>
+        <a href="/">Home</a>
+        <a href="/form">Form</a>
+        <a href="/data">Data</a>
+    </nav>
+    <div class="container">
+        <h2>Submit Your Info</h2>
+        <form method="POST">
+            <input type="text" name="name" placeholder="Name" required><br>
+            <input type="email" name="email" placeholder="Email" required><br>
+            <input type="number" name="value" placeholder="Numeric Value" required><br>
+            <button type="submit">Submit</button>
+        </form>
+
+        {% if name %}
+        <div class="result">
+            <h3>Submitted Data:</h3>
+            <p>Name: {{ name }}</p>
+            <p>Email: {{ email }}</p>
+            <p>Value: {{ value }}</p>
+        </div>
+        {% endif %}
+    </div>
+</body>
+</html>
