@@ -1,31 +1,45 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <title>Data | Flask App</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
-    <title>Data</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
-    <nav>
-        <a href="/">Home</a>
-        <a href="/form">Form</a>
-        <a href="/data">Data</a>
-    </nav>
-    <div class="container">
-        <h2>Product Data</h2>
-        <table>
-            <tr>
-                <th>Product Name</th>
-                <th>Price</th>
-                <th>Category</th>
-            </tr>
-            {% for product in products %}
-            <tr>
-                <td>{{ product['Product Name'] }}</td>
-                <td>{{ product['Price'] }}</td>
-                <td>{{ product['Category'] }}</td>
-            </tr>
-            {% endfor %}
+    <header>
+        <nav class="navbar">
+            <div class="logo">
+                <img src="{{ url_for('static', filename='logo.png') }}" alt="Logo">
+            </div>
+            <ul class="nav-links">
+                <li><a href="/">Home</a></li>
+                <li><a href="/form">Form</a></li>
+                <li><a href="/data">Data</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="data-section">
+        <h2>Product Details</h2>
+        <table class="styled-table">
+            <thead>
+                <tr>
+                    <th>Product Name</th>
+                    <th>Price</th>
+                    <th>Category</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for product in products %}
+                <tr>
+                    <td>{{ product['Product Name'] }}</td>
+                    <td>{{ product['Price'] }}</td>
+                    <td>{{ product['Category'] }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
         </table>
-    </div>
+    </main>
 </body>
 </html>

@@ -1,19 +1,29 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <title>Home | Flask App</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
-    <title>Home</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
-    <nav>
-        <a href="/">Home</a>
-        <a href="/form">Form</a>
-        <a href="/data">Data</a>
-    </nav>
-    <div class="container">
-        <img src="{{ url_for('static', filename='logo.png') }}" alt="Logo">
+    <header>
+        <nav class="navbar">
+            <div class="logo">
+                <img src="{{ url_for('static', filename='logo.png') }}" alt="Logo">
+            </div>
+            <ul class="nav-links">
+                <li><a href="/">Home</a></li>
+                <li><a href="/form">Form</a></li>
+                <li><a href="/data">Data</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="hero">
         <h1>Welcome to Our Flask App</h1>
-        <p>Explore dynamic data and form handling!</p>
-    </div>
+        <p>Explore dynamic data, form handling, and beautiful UI integration.</p>
+        <a href="/form" class="cta-button">Get Started</a>
+    </main>
 </body>
 </html>

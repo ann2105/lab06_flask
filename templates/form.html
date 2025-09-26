@@ -1,32 +1,42 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <title>Form | Flask App</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
-    <title>Form</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
-    <nav>
-        <a href="/">Home</a>
-        <a href="/form">Form</a>
-        <a href="/data">Data</a>
-    </nav>
-    <div class="container">
-        <h2>Submit Your Info</h2>
-        <form method="POST">
-            <input type="text" name="name" placeholder="Name" required><br>
-            <input type="email" name="email" placeholder="Email" required><br>
-            <input type="number" name="value" placeholder="Numeric Value" required><br>
+    <header>
+        <nav class="navbar">
+            <div class="logo">
+                <img src="{{ url_for('static', filename='logo.png') }}" alt="Logo">
+            </div>
+            <ul class="nav-links">
+                <li><a href="/">Home</a></li>
+                <li><a href="/form">Form</a></li>
+                <li><a href="/data">Data</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="form-section">
+        <h2>Submit Your Information</h2>
+        <form method="POST" class="styled-form">
+            <input type="text" name="name" placeholder="Your Name" required>
+            <input type="email" name="email" placeholder="Your Email" required>
+            <input type="number" name="value" placeholder="Numeric Value" required>
             <button type="submit">Submit</button>
         </form>
 
         {% if name %}
-        <div class="result">
-            <h3>Submitted Data:</h3>
-            <p>Name: {{ name }}</p>
-            <p>Email: {{ email }}</p>
-            <p>Value: {{ value }}</p>
+        <div class="result-card">
+            <h3>Submitted Data</h3>
+            <p><strong>Name:</strong> {{ name }}</p>
+            <p><strong>Email:</strong> {{ email }}</p>
+            <p><strong>Value:</strong> {{ value }}</p>
         </div>
         {% endif %}
-    </div>
+    </main>
 </body>
 </html>
